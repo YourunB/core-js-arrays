@@ -38,8 +38,24 @@ function getIntervalArray(start, end) {
  *    sumArrays([10, 20, 30], [5, 10, 15]) => [15, 30, 45]
  *    sumArrays([-1, 0, 1], [1, 2, 3, 4]) => [0, 2, 4, 4]
  */
-function sumArrays(/* arr1, arr2 */) {
-  throw new Error('Not implemented');
+function sumArrays(arr1, arr2) {
+  let sumArr;
+  if (arr1.length >= arr2.length) {
+    sumArr = arr1.map((num, i) => {
+      let sum;
+      if (arr2[i] !== undefined) sum = num + arr2[i];
+      else sum = num;
+      return sum;
+    });
+  } else {
+    sumArr = arr2.map((num, i) => {
+      let sum;
+      if (arr1[i] !== undefined) sum = num + arr1[i];
+      else sum = num;
+      return sum;
+    });
+  }
+  return sumArr;
 }
 
 /**
